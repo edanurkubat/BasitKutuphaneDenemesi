@@ -31,6 +31,7 @@ TblYazar(ID, AdSoyad, DogumTarihi)
 *Şifre 6 karakterden kısa ise uyarı
 *Geri tuşu ile kapanma
 
+<img width="452" height="533" alt="Ekran görüntüsü 2025-09-27 230224" src="https://github.com/user-attachments/assets/7c097c5d-323c-4bc2-bd1f-b26f63277d60" />
 
  
 	Şifremi unuttum
@@ -43,7 +44,9 @@ TblYazar(ID, AdSoyad, DogumTarihi)
 *Butona tıklanması halinde veri tabanında bilgi güncellenmesi
 *Uyarılardan sonra ilgili textboxların temizlenmesi
 *Doğru bilgilerin girilmesi halinde anasayfa formuna giriş
- 
+
+ <img width="482" height="373" alt="Ekran görüntüsü 2025-09-27 230211" src="https://github.com/user-attachments/assets/8e93d21d-9c10-4a55-a548-b0ec3cde4487" />
+
 	Anasayfada 
 *menustrip componenti
 *Bu componenteki başlıklar;
@@ -74,16 +77,27 @@ istatistikleri tutulur.
               Kitap listele ikonuna tıklanılarak kitap listeleme ekranına gidilir. Burda kitap, yazar, yayınevi ve tür adına göre tek tek ya da bir arada arama yapılabilir.
  
 -Kitap Ekle-Sil-Güncelle kitap işlemleri
-             
+ <img width="1055" height="618" alt="Ekran görüntüsü 2025-09-27 235505" src="https://github.com/user-attachments/assets/8f4db521-4436-4363-80d5-973933e01a49" />
+ 
+ <img width="1060" height="620" alt="Ekran görüntüsü 2025-09-27 235524" src="https://github.com/user-attachments/assets/829cb2b3-f03d-45d2-af0c-906f8bbadfa6" />
+
 -Yazar yazar işlemleri
- 
+ <img width="1062" height="620" alt="Ekran görüntüsü 2025-09-27 235540" src="https://github.com/user-attachments/assets/29f09002-4c15-4ccf-bb78-56008afa8e97" />
+
 -Yayınevi yayınevi işlemleri
- 
+ <img width="1060" height="625" alt="Ekran görüntüsü 2025-09-27 235553" src="https://github.com/user-attachments/assets/7504e6f3-6682-4a68-8e38-db84fa7ac03b" />
+
 -Emanet Ekle-Teslim 
-         
+        <img width="1060" height="619" alt="Ekran görüntüsü 2025-09-27 235617" src="https://github.com/user-attachments/assets/7dc69f98-3738-4412-a4e9-2a82a5604c3a" />
+<img width="1058" height="618" alt="Ekran görüntüsü 2025-09-27 235606" src="https://github.com/user-attachments/assets/4869692c-f894-4b7f-b908-2a446ea608d2" />
+ 
 -İstatistik
- 
+ <img width="1067" height="618" alt="Ekran görüntüsü 2025-09-27 235630" src="https://github.com/user-attachments/assets/290c2302-b3b6-410a-94f3-094ffbe1a303" />
+
 *Listeleme iconu (Anasayfa ilk açıldığında görünen ekran)
-*Üye iconu (Üye işlemleri sil-kaydet-güncelle)
- 
+<img width="1064" height="585" alt="Ekran görüntüsü 2025-09-27 205551" src="https://github.com/user-attachments/assets/0db2f58c-40c0-4144-9241-3fa693c100f7" />
+
+*Üye iconu (Üye işlemleri sil-kaydet-güncelle)                                                                                    
+ <img width="501" height="558" alt="Ekran görüntüsü 2025-09-27 235638" src="https://github.com/user-attachments/assets/830f3b02-41cf-4b7e-8076-3f695a8d0be1" />
+
 
