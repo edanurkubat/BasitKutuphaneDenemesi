@@ -61,7 +61,7 @@ Proje 5 ana tablo üzerinde çalışmaktadır:
 - Üye olma ve şifre sıfırlama seçenekleri
 - Enter tuşuyla hızlı giriş
 
-![Giriş Ekranı]([https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-19ed3306e2db))
+![Giriş Ekranı](https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-13ed3306e2db)
 
 
 ### 📝 Üye Kayıt Sistemi
