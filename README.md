@@ -1,103 +1,230 @@
-# BasitKutuphaneDenemesi
-A Library Automation system that can be built with minimum SQL Server and Windows Forms knowledge. Basic book-author-loan operations can be performed; statistics can be generated from these operations.
-Kütüphane Yönetim Sistemi
+# 📚 Kütüphane Yönetim Sistemi
 
-Tablolar
-TblKitaplar (KitapID, KitapAd, Yazar, Sayfa, Yayinevi, Tur, Durum)
-TblUye(UyeID, KullaniciAdi, Sifre)
-TblYayinevi(ID, Ad)
-TblEmanet(EmanetID, UyeID, KitapID, AlisTarihi, TeslimTarihi)
-TblYazar(ID, AdSoyad, DogumTarihi)
-Özellikler
-	Giriş formu
-*Kullanıcı adı ve şifre
-*Kod ve kod oluşma alanı
-*Her uyarıdan sonra değişen kod
-*Kullanıcı zaten varsa uyarı
-*Kullanıcı Adı şifre uyuşmaması durumunda hata
-*Kullanıcı ve şifre doğru; kod yanlış veya boşsa uyarı
-*Üye ol ve şifremi unuttum butonu
-*Enter’a giriş yap butonunu atama
-*Uyarılardan sonra ilgili textboxların temizlenmesi
+Temel SQL Server ve Windows Forms bilgisiyle oluşturulabilen bir kütüphane otomasyon sistemi. Kitap-yazar-emanet işlemleri yapılabilir ve bu işlemlerden istatistikler üretilebilir.
 
- <img width="474" height="595" alt="Ekran görüntüsü 2025-09-27 230153" src="https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-19ed3306e2db" />
+## 📋 Proje Hakkında
+
+Bu proje, C# Windows Forms ve SQL Server kullanılarak geliştirilmiş kapsamlı bir kütüphane yönetim sistemidir. Kitap kayıt işlemlerinden üye yönetimine, emanet takibinden detaylı istatistiklere kadar tüm kütüphane operasyonlarını destekler.
+
+## 🗄️ Veritabanı Yapısı
+
+Proje 5 ana tablo üzerinde çalışmaktadır:
+
+### TblKitaplar
+| Alan | Tip | Açıklama |
+|------|-----|----------|
+| KitapID | int | Primary Key |
+| KitapAd | nvarchar | Kitap adı |
+| Yazar | int | Foreign Key (TblYazar) |
+| Sayfa | int | Sayfa sayısı |
+| Yayinevi | int | Foreign Key (TblYayinevi) |
+| Tur | nvarchar | Kitap türü |
+| Durum | bit | Müsait/Emanette durumu |
+
+### TblUye
+| Alan | Tip | Açıklama |
+|------|-----|----------|
+| UyeID | int | Primary Key |
+| KullaniciAdi | nvarchar | Kullanıcı adı |
+| Sifre | nvarchar | Şifre |
+
+### TblYazar
+| Alan | Tip | Açıklama |
+|------|-----|----------|
+| ID | int | Primary Key |
+| AdSoyad | nvarchar | Yazar adı soyadı |
+| DogumTarihi | date | Doğum tarihi |
+
+### TblYayinevi
+| Alan | Tip | Açıklama |
+|------|-----|----------|
+| ID | int | Primary Key |
+| Ad | nvarchar | Yayınevi adı |
+
+### TblEmanet
+| Alan | Tip | Açıklama |
+|------|-----|----------|
+| EmanetID | int | Primary Key |
+| UyeID | int | Foreign Key (TblUye) |
+| KitapID | int | Foreign Key (TblKitaplar) |
+| AlisTarihi | date | Kitap alış tarihi |
+| TeslimTarihi | date | Kitap teslim tarihi |
+
+## ✨ Özellikler
+
+### 🔐 Giriş Sistemi
+- Kullanıcı adı ve şifre doğrulaması
+- Güvenlik kodu üretimi ve doğrulaması
+- Her uyarıdan sonra değişen dinamik kod
+- Kayıtlı kullanıcı kontrolü
+- Hatalı giriş uyarıları
+- Üye olma ve şifre sıfırlama seçenekleri
+- Enter tuşuyla hızlı giriş
+
+![Giriş Ekranı](https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-13ed3306e2db)
+
+### 📝 Üye Kayıt Sistemi
+- Kullanıcı adı ve şifre girişi
+- Şifreyi göster/gizle özelliği
+- Minimum 6 karakter şifre zorunluluğu
+- Tekrar kullanıcı adı kontrolü
+- Boş alan kontrolü
+- Otomatik veritabanı kaydı
+
+![Üye Ol](https://github.com/user-attachments/assets/7c097c5d-323c-4bc2-bd1f-b26f63277d60)
+
+### 🔑 Şifre Sıfırlama
+- Kullanıcı adı ile şifre güncelleme
+- Şifre tekrar doğrulaması
+- Kullanıcı varlık kontrolü
+- Minimum 6 karakter şifre kuralı
+- Başarılı sıfırlamada otomatik anasayfaya yönlendirme
+
+![Şifre Sıfırlama](https://github.com/user-attachments/assets/8e93d21d-9c10-4a55-a548-b0ec3cde4487)
+
+### 📖 Kitap İşlemleri
+- Yeni kitap ekleme
+- Kitap bilgilerini güncelleme
+- Kitap silme
+- Sağ tıklama ile liste yenileme
+- Yazar ve yayınevi seçimi
+- Durum takibi (Müsait/Emanette)
+
+![Kitap İşlemleri 1](https://github.com/user-attachments/assets/8f4db521-4436-4363-80d5-973933e01a49)
+
+![Kitap İşlemleri 2](https://github.com/user-attachments/assets/829cb2b3-f03d-45d2-af0c-906f8bbadfa6)
+
+### ✍️ Yazar Yönetimi
+- Yazar ekleme ve düzenleme
+- Yazar bilgilerini güncelleme
+- Doğum tarihi kaydı
+
+![Yazar İşlemleri](https://github.com/user-attachments/assets/29f09002-4c15-4ccf-bb78-56008afa8e97)
+
+### 🏢 Yayınevi Yönetimi
+- Yayınevi ekleme ve düzenleme
+- Yayınevi bilgilerini güncelleme
+
+![Yayınevi İşlemleri](https://github.com/user-attachments/assets/7504e6f3-6682-4a68-8e38-db84fa7ac03b)
+
+### 📋 Emanet Sistemi
+- **Emanet Verme:**
+  - Tarih seçimi ile emanet kaydı
+  - Otomatik kitap durumu güncelleme (Emanette)
+  - Aynı üye-kitap eşleşme kontrolü
+  - Teslim tarihi girişi kapalı (erken teslimat önleme)
+
+- **Emanet Teslim Alma:**
+  - Sadece teslim tarihi girişi aktif
+  - Otomatik kitap durumu güncelleme (Müsait)
+  - İstatistik verilerinin güncellenmesi
+
+![Emanet Ekle](https://github.com/user-attachments/assets/7dc69f98-3738-4412-a4e9-2a82a5604c3a)
+
+![Emanet Teslim](https://github.com/user-attachments/assets/4869692c-f894-4b7f-b908-2a446ea608d2)
+
+### 📊 İstatistikler ve Raporlama
+- **Genel İstatistikler:**
+  - Toplam kitap sayısı
+  - Toplam üye sayısı
+  - Toplam yayınevi sayısı
+  - Aktif emanet sayısı
+  - Emanetteki kitap sayısı
+  - Müsait kitap sayısı
+
+- **Grafikler:**
+  - Yazarlara göre kitap sayısı grafiği
+  - Yayınevine göre kitap dağılımı chart
+
+![İstatistikler](https://github.com/user-attachments/assets/290c2302-b3b6-410a-94f3-094ffbe1a303)
+
+### 🔍 Kitap Listeleme ve Arama
+- Kitap adına göre arama
+- Yazar adına göre filtreleme
+- Yayınevi adına göre filtreleme
+- Tür adına göre arama
+- Kombine arama desteği
+- Detaylı kitap bilgilerini görüntüleme
+
+![Kitap Listeleme](https://github.com/user-attachments/assets/0db2f58c-40c0-4144-9241-3fa693c100f7)
+
+### 👤 Üye İşlemleri
+- Üye ekleme
+- Üye silme
+- Üye bilgilerini güncelleme
+- Üye listesini görüntüleme
+
+![Üye İşlemleri](https://github.com/user-attachments/assets/830f3b02-41cf-4b7e-8076-3f695a8d0be1)
+
+## 🛠️ Kullanılan Teknolojiler
+
+- **IDE:** Visual Studio
+- **Programlama Dili:** C#
+- **Framework:** .NET Framework / Windows Forms
+- **Veritabanı:** Microsoft SQL Server
+- **UI Bileşenleri:** MenuStrip, DataGridView, Chart, DateTimePicker
+
+## 📦 Kurulum
+
+1. Projeyi klonlayın:
+```bash
+git clone https://github.com/kullaniciadi/kutuphane-yonetim-sistemi.git
+```
+
+2. SQL Server'da veritabanını oluşturun:
+   - `DatabaseScript.sql` dosyasını SQL Server Management Studio'da çalıştırın
+
+3. Bağlantı ayarlarını yapılandırın:
+   - Projedeki connection string'i kendi SQL Server bilgilerinize göre güncelleyin
+
+4. Visual Studio'da solution dosyasını açın
+
+5. NuGet paketlerini geri yükleyin
+
+6. Projeyi derleyin ve çalıştırın
+
+## 💡 Kullanım
+
+1. **İlk Kullanım:**
+   - "Üye Ol" butonundan yeni hesap oluşturun
+   - Minimum 6 karakterli şifre belirleyin
+   - Güvenlik kodu ile giriş yapın
+
+2. **Kütüphane Yönetimi:**
+   - Menü çubuğundan ilgili modüle gidin
+   - Kitap, yazar ve yayınevi bilgilerini ekleyin
+   - Emanet işlemlerini gerçekleştirin
+
+3. **Raporlama:**
+   - İstatistik menüsünden detaylı raporları görüntüleyin
+   - Grafikleri analiz edin
+
+## 🎯 Proje Hedefleri
+
+- ✅ Kütüphane operasyonlarının dijitalleştirilmesi
+- ✅ Kitap-üye takibinin kolaylaştırılması
+- ✅ Emanet süreçlerinin otomasyonu
+- ✅ Detaylı raporlama ve istatistik üretimi
+- ✅ Kullanıcı dostu arayüz tasarımı
+
+## 🚀 Geliştirme Fırsatları
+
+- Kitap rezervasyon sistemi
+- Gecikme cezası hesaplama
+- E-posta bildirimleri
+- Barkod okuyucu entegrasyonu
+- Mobil uygulama desteği
+
+## 👨‍💻 Geliştirici
+
+**[Adınız Soyadınız]**
+- GitHub: [@edanurkubat](https://github.com/edanurkubat)
+
+## 📝 Lisans
+
+Bu proje eğitim amaçlı geliştirilmiştir.
 
 
-	Üye ol
-*Üye ol formunda kullanıcı adı şifre ve şifreyi göster componentleri
-*Kullanıcı adı ve şifre girilip üye ol butonuna tıklandığında veri tabanına bilgi girişi
-*Bilgi girilmemesi halinde messagebox ile uyarı
-*Aynı kullanıcı girilmesi halinde uyarı
-*Şifre 6 karakterden kısa ise uyarı
-*Geri tuşu ile kapanma
+---
 
-<img width="452" height="533" alt="Ekran görüntüsü 2025-09-27 230224" src="https://github.com/user-attachments/assets/7c097c5d-323c-4bc2-bd1f-b26f63277d60" />
-
- 
-	Şifremi unuttum
-*Kullanıcı adı ve şifre girişi
-*Şifreyi tekrarla 
-*Şifre ve şifreyi tekrarla bölümü aynı değilse uyarı
-*Kullanıcı bulunmaması halinde uyarı
-*En az 6 karakter şifre uzunluğu
-*Şifreyi göster checkbox’u
-*Butona tıklanması halinde veri tabanında bilgi güncellenmesi
-*Uyarılardan sonra ilgili textboxların temizlenmesi
-*Doğru bilgilerin girilmesi halinde anasayfa formuna giriş
-
- <img width="482" height="373" alt="Ekran görüntüsü 2025-09-27 230211" src="https://github.com/user-attachments/assets/8e93d21d-9c10-4a55-a548-b0ec3cde4487" />
-
-	Anasayfada 
-*menustrip componenti
-*Bu componenteki başlıklar;
-    -Kitap
-        #Ekle/Güncelle
-        #Sil
-       (sağ tık yenile ile liste yenilenir)
-    -Yazar
-        #Düzenle
-    -Yayınevi
-        #Düzenle
-    -Emanet
-        #Ekle
-    ** Girilen tarihte emanet ekler ve kitaplar tablosundaki durum kısmını false yapar. Aynı uye-kitap eşleşmesinde uyarı verir. Teslim tarihi verisi girilemez bu şekilde teslim edilme durumunun önüne geçilir.
-        #Teslim
-     Teslim edilme tarihi dışında diğer componentlerde veri girişi kapalıdır. Teslim tarihi girildiğinde kitaplar tablosundaki durum kısmını true yapar bu şekilde kitap ekleme-güncelleme ekranında teslim edildi check box’ı seçili olur. Ve buna göre istatistikler şekillenir.
-    -İstatistik
-        #Toplam Kitap Sayısı
-        #Yıplam Üye Sayısı
-        #Toplam Yayınevi Sayısı
-        #Aktif Emanet
-        #Emanette
-        #Müsait
-    *Yazarlara göre kitap sayısı Grafik
-    *Yayınevine göre kitap sayısı Chart
-istatistikleri tutulur.
- *3 tane buton bunlara icon (kitap listele, Uye düzenle, Uygulama çıkış)
-              Kitap listele ikonuna tıklanılarak kitap listeleme ekranına gidilir. Burda kitap, yazar, yayınevi ve tür adına göre tek tek ya da bir arada arama yapılabilir.
- 
--Kitap Ekle-Sil-Güncelle kitap işlemleri
- <img width="1055" height="618" alt="Ekran görüntüsü 2025-09-27 235505" src="https://github.com/user-attachments/assets/8f4db521-4436-4363-80d5-973933e01a49" />
- 
- <img width="1060" height="620" alt="Ekran görüntüsü 2025-09-27 235524" src="https://github.com/user-attachments/assets/829cb2b3-f03d-45d2-af0c-906f8bbadfa6" />
-
--Yazar yazar işlemleri
- <img width="1062" height="620" alt="Ekran görüntüsü 2025-09-27 235540" src="https://github.com/user-attachments/assets/29f09002-4c15-4ccf-bb78-56008afa8e97" />
-
--Yayınevi yayınevi işlemleri
- <img width="1060" height="625" alt="Ekran görüntüsü 2025-09-27 235553" src="https://github.com/user-attachments/assets/7504e6f3-6682-4a68-8e38-db84fa7ac03b" />
-
--Emanet Ekle-Teslim 
-        <img width="1060" height="619" alt="Ekran görüntüsü 2025-09-27 235617" src="https://github.com/user-attachments/assets/7dc69f98-3738-4412-a4e9-2a82a5604c3a" />
-<img width="1058" height="618" alt="Ekran görüntüsü 2025-09-27 235606" src="https://github.com/user-attachments/assets/4869692c-f894-4b7f-b908-2a446ea608d2" />
- 
--İstatistik
- <img width="1067" height="618" alt="Ekran görüntüsü 2025-09-27 235630" src="https://github.com/user-attachments/assets/290c2302-b3b6-410a-94f3-094ffbe1a303" />
-
-*Listeleme iconu (Anasayfa ilk açıldığında görünen ekran)
-<img width="1064" height="585" alt="Ekran görüntüsü 2025-09-27 205551" src="https://github.com/user-attachments/assets/0db2f58c-40c0-4144-9241-3fa693c100f7" />
-
-*Üye iconu (Üye işlemleri sil-kaydet-güncelle)                                                                                    
- <img width="501" height="558" alt="Ekran görüntüsü 2025-09-27 235638" src="https://github.com/user-attachments/assets/830f3b02-41cf-4b7e-8076-3f695a8d0be1" />
-
-
+⭐ Projeyi beğendiyseniz yıldız vermeyi unutmayın!
