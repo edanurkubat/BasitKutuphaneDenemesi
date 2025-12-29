@@ -61,7 +61,8 @@ Proje 5 ana tablo üzerinde çalışmaktadır:
 - Üye olma ve şifre sıfırlama seçenekleri
 - Enter tuşuyla hızlı giriş
 
-![Giriş Ekranı](https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-13ed3306e2db)
+![Giriş Ekranı]([https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-13ed3306e2db](https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-19ed3306e2db))
+
 
 ### 📝 Üye Kayıt Sistemi
 - Kullanıcı adı ve şifre girişi
@@ -92,7 +93,6 @@ Proje 5 ana tablo üzerinde çalışmaktadır:
 
 ![Kitap İşlemleri 1](https://github.com/user-attachments/assets/8f4db521-4436-4363-80d5-973933e01a49)
 
-![Kitap İşlemleri 2](https://github.com/user-attachments/assets/829cb2b3-f03d-45d2-af0c-906f8bbadfa6)
 
 ### ✍️ Yazar Yönetimi
 - Yazar ekleme ve düzenleme
