@@ -165,24 +165,7 @@ Proje 5 ana tablo üzerinde çalışmaktadır:
 - **Veritabanı:** Microsoft SQL Server
 - **UI Bileşenleri:** MenuStrip, DataGridView, Chart, DateTimePicker
 
-## 📦 Kurulum
 
-1. Projeyi klonlayın:
-```bash
-git clone https://github.com/kullaniciadi/kutuphane-yonetim-sistemi.git
-```
-
-2. SQL Server'da veritabanını oluşturun:
-   - `DatabaseScript.sql` dosyasını SQL Server Management Studio'da çalıştırın
-
-3. Bağlantı ayarlarını yapılandırın:
-   - Projedeki connection string'i kendi SQL Server bilgilerinize göre güncelleyin
-
-4. Visual Studio'da solution dosyasını açın
-
-5. NuGet paketlerini geri yükleyin
-
-6. Projeyi derleyin ve çalıştırın
 
 ## 💡 Kullanım
 
@@ -216,16 +199,229 @@ git clone https://github.com/kullaniciadi/kutuphane-yonetim-sistemi.git
 - Barkod okuyucu entegrasyonu
 - Mobil uygulama desteği
 
-## 👨‍💻 Geliştirici
+##  Geliştirici
 
-**[Adınız Soyadınız]**
+
 - GitHub: [@edanurkubat](https://github.com/edanurkubat)
 
-## 📝 Lisans
+##  Lisans
 
 Bu proje eğitim amaçlı geliştirilmiştir.
 
 
----
+
 
 ⭐ Projeyi beğendiyseniz yıldız vermeyi unutmayın!
+
+---
+
+
+
+
+# 📚 Library Management System
+
+A library automation system that can be built with basic SQL Server and Windows Forms knowledge. Book-author-loan operations can be performed and statistics can be generated from these operations.
+
+## 📋 About The Project
+
+This project is a comprehensive library management system developed using C# Windows Forms and SQL Server. It supports all library operations from book registration to member management, from loan tracking to detailed statistics.
+
+## 🗄️ Database Structure
+
+The project operates on 5 main tables:
+
+### TblBooks
+| Field | Type | Description |
+|------|-----|----------|
+| BookID | int | Primary Key |
+| BookName | nvarchar | Book name |
+| Author | int | Foreign Key (TblAuthor) |
+| Pages | int | Number of pages |
+| Publisher | int | Foreign Key (TblPublisher) |
+| Genre | nvarchar | Book genre |
+| Status | bit | Available/On Loan status |
+
+### TblMember
+| Field | Type | Description |
+|------|-----|----------|
+| MemberID | int | Primary Key |
+| Username | nvarchar | Username |
+| Password | nvarchar | Password |
+
+### TblAuthor
+| Field | Type | Description |
+|------|-----|----------|
+| ID | int | Primary Key |
+| FullName | nvarchar | Author full name |
+| BirthDate | date | Date of birth |
+
+### TblPublisher
+| Field | Type | Description |
+|------|-----|----------|
+| ID | int | Primary Key |
+| Name | nvarchar | Publisher name |
+
+### TblLoan
+| Field | Type | Description |
+|------|-----|----------|
+| LoanID | int | Primary Key |
+| MemberID | int | Foreign Key (TblMember) |
+| BookID | int | Foreign Key (TblBooks) |
+| BorrowDate | date | Book borrow date |
+| ReturnDate | date | Book return date |
+
+## ✨ Features
+
+### 🔐 Login System
+- Username and password verification
+- Security code generation and validation
+- Dynamic code that changes after each warning
+- Registered user check
+- Invalid login warnings
+- Sign up and password reset options
+- Quick login with Enter key
+
+![Login Screen](https://github.com/user-attachments/assets/9675b19d-6d55-404c-aa45-19ed3306e2db)
+
+### 📝 Member Registration System
+- Username and password input
+- Show/hide password feature
+- Minimum 6 character password requirement
+- Duplicate username check
+- Empty field validation
+- Automatic database registration
+
+![Sign Up](https://github.com/user-attachments/assets/7c097c5d-323c-4bc2-bd1f-b26f63277d60)
+
+### 🔑 Password Reset
+- Password update via username
+- Password confirmation check
+- User existence validation
+- Minimum 6 character password rule
+- Automatic redirect to homepage on successful reset
+
+![Password Reset](https://github.com/user-attachments/assets/8e93d21d-9c10-4a55-a548-b0ec3cde4487)
+
+### 📖 Book Operations
+- Add new book
+- Update book information
+- Delete book
+- Refresh list with right-click
+- Author and publisher selection
+- Status tracking (Available/On Loan)
+
+![Book Operations](https://github.com/user-attachments/assets/8f4db521-4436-4363-80d5-973933e01a49)
+
+### ✍️ Author Management
+- Add and edit authors
+- Update author information
+- Birth date recording
+
+![Author Operations](https://github.com/user-attachments/assets/29f09002-4c15-4ccf-bb78-56008afa8e97)
+
+### 🏢 Publisher Management
+- Add and edit publishers
+- Update publisher information
+
+![Publisher Operations](https://github.com/user-attachments/assets/7504e6f3-6682-4a68-8e38-db84fa7ac03b)
+
+### 📋 Loan System
+- **Issuing a Loan:**
+  - Loan record with date selection
+  - Automatic book status update (On Loan)
+  - Duplicate member-book match check
+  - Return date input disabled (to prevent early return entry)
+
+- **Receiving a Return:**
+  - Only return date input is active
+  - Automatic book status update (Available)
+  - Statistics data update
+
+![Add Loan](https://github.com/user-attachments/assets/7dc69f98-3738-4412-a4e9-2a82a5604c3a)
+
+![Return Loan](https://github.com/user-attachments/assets/4869692c-f894-4b7f-b908-2a446ea608d2)
+
+### 📊 Statistics & Reporting
+- **General Statistics:**
+  - Total number of books
+  - Total number of members
+  - Total number of publishers
+  - Active loan count
+  - Number of books on loan
+  - Number of available books
+
+- **Charts:**
+  - Number of books per author chart
+  - Book distribution by publisher chart
+
+![Statistics](https://github.com/user-attachments/assets/290c2302-b3b6-410a-94f3-094ffbe1a303)
+
+### 🔍 Book Listing & Search
+- Search by book name
+- Filter by author name
+- Filter by publisher name
+- Search by genre
+- Combined search support
+- View detailed book information
+
+![Book Listing](https://github.com/user-attachments/assets/0db2f58c-40c0-4144-9241-3fa693c100f7)
+
+### 👤 Member Operations
+- Add member
+- Delete member
+- Update member information
+- View member list
+
+![Member Operations](https://github.com/user-attachments/assets/830f3b02-41cf-4b7e-8076-3f695a8d0be1)
+
+## 🛠️ Technologies Used
+
+- **IDE:** Visual Studio
+- **Programming Language:** C#
+- **Framework:** .NET Framework / Windows Forms
+- **Database:** Microsoft SQL Server
+- **UI Components:** MenuStrip, DataGridView, Chart, DateTimePicker
+
+## 💡 Usage
+
+1. **First Use:**
+   - Create a new account from the "Sign Up" button
+   - Set a password with a minimum of 6 characters
+   - Log in with the security code
+
+2. **Library Management:**
+   - Navigate to the relevant module from the menu bar
+   - Add book, author and publisher information
+   - Perform loan operations
+
+3. **Reporting:**
+   - View detailed reports from the statistics menu
+   - Analyze the charts
+
+## 🎯 Project Goals
+
+- ✅ Digitalization of library operations
+- ✅ Simplified book-member tracking
+- ✅ Automation of loan processes
+- ✅ Detailed reporting and statistics generation
+- ✅ User-friendly interface design
+
+## 🚀 Future Development Opportunities
+
+- Book reservation system
+- Late return fee calculation
+- Email notifications
+- Barcode reader integration
+- Mobile application support
+
+## Developer
+
+- GitHub: [@edanurkubat](https://github.com/edanurkubat)
+
+## License
+
+This project was developed for educational purposes.
+
+---
+
+⭐ If you liked the project, don't forget to give it a star!
